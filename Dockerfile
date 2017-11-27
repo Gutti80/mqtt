@@ -1,87 +1,29 @@
 FROM debian:jessie
+MAINTAINER Georg Guttmann
 
-MAINTAINER Georg Guttmann <gutti80@gmx.at>
+RUN apt-get update -y && apt-get upgrade -y
+RUN apt-get install -y curl
 
-ENV FHEM_VERSION 5.8
-ENV DEBIAN_FRONTEND noninteractive
-ENV TERM xterm
+# add Mosquitto repository key
+RUN curl http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key | apt-key add -
 
-# Install dependencies
-RUN apt-get update && apt-get upgrade -y --force-yes && apt-get install -y --force-yes --no-install-recommends apt-utils
-RUN apt-get -y --force-yes install \
-apt-transport-https \
-build-essential \
-dfu-programmer \
-etherwake \
-git \
-perl \
-snmp \
-snmpd \
-sqlite3 \
-sudo \
-telnet \
-usbutils \
-nano \
-wget
+# add repository to sources.list.d
+RUN curl http://repo.mosquitto.org/debian/mosquitto-jessie.list > /etc/apt/sources.list.d/mosquitto-jessie.list
+RUN apt-get update -y
 
-# Install perl packages
-RUN apt-get -y --force-yes install \
-libalgorithm-merge-perl \
-libauthen-oath-perl \
-libavahi-compat-libdnssd-dev \
-libcgi-pm-perl \
-libclass-dbi-mysql-perl \
-libclass-isa-perl \
-libcommon-sense-perl \
-libconvert-base32-perl \
-libcrypt-urandom-perl \
-libdata-dump-perl \
-libdatetime-format-strptime-perl \
-libdbd-sqlite3-perl \
-libdbi-perl \
-libdevice-serialport-perl \
-libdpkg-perl \
-liberror-perl \
-libfile-copy-recursive-perl \
-libfile-fcntllock-perl \
-libgd-graph-perl \
-libgd-text-perl \
-libimage-info-perl \
-libimage-librsvg-perl \
-libio-socket-inet6-perl \
-libio-socket-ip-perl \
-libio-socket-multicast-perl \
-libio-socket-ssl-perl \
-libjson-perl \
-libjson-xs-perl \
-liblist-moreutils-perl \
-libmail-imapclient-perl \
-libmail-sendmail-perl \
-libmime-base64-perl \
-libnet-snmp-perl \
-libnet-telnet-perl \
-libsoap-lite-perl \
-libsocket-perl \
-libsocket6-perl \
-libswitch-perl \
-libsys-hostname-long-perl \
-libterm-readkey-perl \
-libterm-readline-perl-perl \
-libtext-csv-perl \
-libtext-diff-perl \
-libtimedate-perl \
-libwww-perl \
-libxml-simple-perl 
+# finally install 
+RUN apt-get install -y --no-install-recommends mosquitto mosquitto-clients
 
-# Install fhem
-RUN echo Europe/Vienna > /etc/timezone && dpkg-reconfigure tzdata
+# add a user
+RUN adduser --system --disabled-password --disabled-login mosquitto
+RUN mkdir /config && chown mosquitto -R /config
+USER mosquitto
 
-RUN wget https://fhem.de/fhem-${FHEM_VERSION}.deb && dpkg -i fhem-${FHEM_VERSION}.deb
+# expose a volumne for config and certs
+VOLUME /config
 
-WORKDIR "/opt/fhem"
+# expose ports (normal unencrypted, TLS encrypted, WS encrypted)
+EXPOSE 1883 8883 8080
 
-COPY start.sh ./
-
-EXPOSE 8083 7072
-
-CMD bash start.sh
+# start mosquitto as main process
+CMD ["mosquitto", "-c", "/config/mosquitto.conf"]
