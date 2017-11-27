@@ -21,6 +21,8 @@ USER mosquitto
 
 # expose a volumne for config and certs
 VOLUME /config
+VOLUME /data
+VOLUME /log
 
 # expose ports (normal unencrypted, TLS encrypted, WS encrypted)
 EXPOSE 1883 8883 8080
