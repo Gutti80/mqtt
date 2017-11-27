@@ -1,0 +1,52 @@
+1511797470: mosquitto version 1.4.14 (build date Mon, 10 Jul 2017 23:48:43 +0100) starting
+1511797470: Config loaded from /etc/mosquitto/config/mosquitto.conf.
+1511797470: Opening ipv4 listen socket on port 1883.
+1511797470: Opening ipv6 listen socket on port 1883.
+1511797475: New connection from 172.21.0.1 on port 1883.
+1511797475: New client connected from 172.21.0.1 as pir_gang (c1, k15).
+1511797477: New connection from 172.21.0.1 on port 1883.
+1511797477: New client connected from 172.21.0.1 as DVES_2A6E8A (c1, k15, u'DVES_USER').
+1511797516: New connection from 172.21.0.1 on port 1883.
+1511797516: New client connected from 172.21.0.1 as Net::MQTT::Message[807] (c1, k60).
+1511798693: Socket error on client pir_gang, disconnecting.
+1511798723: New connection from 172.21.0.1 on port 1883.
+1511798723: New client connected from 172.21.0.1 as pir_gang (c1, k15).
+1511799270: Saving in-memory database to /etc/mosquitto/data/mosquitto.db.
+1511799867: mosquitto version 1.4.14 (build date Mon, 10 Jul 2017 23:48:43 +0100) starting
+1511799867: Config loaded from /etc/mosquitto/config/mosquitto.conf.
+1511799867: Opening ipv4 listen socket on port 1883.
+1511799867: Opening ipv6 listen socket on port 1883.
+1511799868: New connection from 172.23.0.1 on port 1883.
+1511799868: New client connected from 172.23.0.1 as pir_gang (c1, k15).
+1511799869: New connection from 172.23.0.1 on port 1883.
+1511799869: New client connected from 172.23.0.1 as Net::MQTT::Message[807] (c1, k60).
+1511799877: New connection from 172.23.0.1 on port 1883.
+1511800473: mosquitto version 1.4.14 (build date Mon, 10 Jul 2017 23:48:43 +0100) starting
+1511800473: Config loaded from /etc/mosquitto/config/mosquitto.conf.
+1511800473: Opening ipv4 listen socket on port 1883.
+1511800473: Opening ipv6 listen socket on port 1883.
+1511800473: New connection from 172.23.0.1 on port 1883.
+1511800473: New client connected from 172.23.0.1 as pir_gang (c1, k15).
+1511800483: New connection from 172.23.0.1 on port 1883.
+1511800483: New client connected from 172.23.0.1 as DVES_2A6E8A (c1, k15, u'DVES_USER').
+1511800520: New connection from 172.23.0.1 on port 1883.
+1511800598: mosquitto version 1.4.14 (build date Mon, 10 Jul 2017 23:48:43 +0100) starting
+1511800598: Config loaded from /etc/mosquitto/config/mosquitto.conf.
+1511800598: Opening ipv4 listen socket on port 1883.
+1511800598: Opening ipv6 listen socket on port 1883.
+1511800599: New connection from 172.23.0.1 on port 1883.
+1511800599: New client connected from 172.23.0.1 as pir_gang (c1, k15).
+1511800605: New connection from 172.23.0.1 on port 1883.
+1511800605: New client connected from 172.23.0.1 as DVES_2A6E8A (c1, k15, u'DVES_USER').
+1511800610: New connection from 172.23.0.1 on port 1883.
+1511800610: New client connected from 172.23.0.1 as Net::MQTT::Message[807] (c1, k60).
+1511801073: New connection from 172.23.0.1 on port 1883.
+1511801168: mosquitto version 1.4.14 (build date Mon, 10 Jul 2017 23:48:43 +0100) starting
+1511801168: Config loaded from /etc/mosquitto/config/mosquitto.conf.
+1511801168: Opening ipv4 listen socket on port 1883.
+1511801168: Opening ipv6 listen socket on port 1883.
+1511801171: New connection from 172.23.0.1 on port 1883.
+1511801171: New client connected from 172.23.0.1 as pir_gang (c1, k15).
+1511801175: New connection from 172.23.0.1 on port 1883.
+1511801175: New client connected from 172.23.0.1 as DVES_2A6E8A (c1, k15, u'DVES_USER').
+1511801196: New connection from 172.23.0.1 on port 1883.
