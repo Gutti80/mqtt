@@ -12,9 +12,9 @@ services:
         networks:
             - fhem-network
         volumes:
-            - ./mosquitto/config/:/mqtt/config/
-            - ./mosquitto/log/:/mqtt/log/
-            - ./mosquitto/data/:/mqtt/data/
+            - ./mosquitto/config/:/etc/mosquitto/config/
+            - ./mosquitto/log/:/etc/mosquitto/log/
+            - ./mosquitto/data/:/etc/mosquitto/data/
             
 networks:
     fhem-network:

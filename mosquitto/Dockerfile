@@ -14,11 +14,10 @@ RUN apt-get update -y
 # finally install 
 RUN apt-get install -y --no-install-recommends mosquitto mosquitto-clients
 
+WORKDIR /etc/mosquitto
+
 # add a user
 RUN adduser --system --disabled-password --disabled-login mosquitto
-RUN mkdir /config && chown mosquitto -R /config
-RUN mkdir /data && chown mosquitto -R /data
-RUN mkdir /log && chown mosquitto -R /log
 USER mosquitto
 
 
@@ -27,4 +26,4 @@ USER mosquitto
 EXPOSE 1883 8883 8080
 
 # start mosquitto as main process
-CMD ["mosquitto", "-c", "/etc/mosquitto/mosquitto.conf"]
+CMD ["mosquitto", "-c", "/etc/mosquitto/config/mosquitto.conf"]
