@@ -4,6 +4,8 @@ MAINTAINER Georg Guttmann
 RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install -y curl sudo nano
 
+RUN echo Europe/Vienna > /etc/timezone && dpkg-reconfigure tzdata
+
 # add Mosquitto repository key
 RUN curl http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key | apt-key add -
 

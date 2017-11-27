@@ -7,3 +7,8 @@
 1511797477: New connection from 172.21.0.1 on port 1883.
 1511797477: New client connected from 172.21.0.1 as DVES_2A6E8A (c1, k15, u'DVES_USER').
 1511797516: New connection from 172.21.0.1 on port 1883.
+1511797516: New client connected from 172.21.0.1 as Net::MQTT::Message[807] (c1, k60).
+1511798693: Socket error on client pir_gang, disconnecting.
+1511798723: New connection from 172.21.0.1 on port 1883.
+1511798723: New client connected from 172.21.0.1 as pir_gang (c1, k15).
+1511799270: Saving in-memory database to /etc/mosquitto/data/mosquitto.db.
