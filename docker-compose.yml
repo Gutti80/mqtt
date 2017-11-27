@@ -1,0 +1,21 @@
+version: "2"
+services:
+    mosquitto:
+        build: mosquitto
+        restart: always
+        expose:
+            - "1883"
+            - "9001"
+        ports:
+            - "1883:1883"
+            - "9001:9001"
+        networks:
+            - fhem-network
+        volumes:
+            - ./mosquitto/config/:/mqtt/config/
+            - ./mosquitto/log/:/mqtt/log/
+            - ./mosquitto/data/:/mqtt/data/
+            
+networks:
+    fhem-network:
+        driver: bridge

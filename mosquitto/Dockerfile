@@ -21,10 +21,7 @@ RUN mkdir /data && chown mosquitto -R /data
 RUN mkdir /log && chown mosquitto -R /log
 USER mosquitto
 
-# expose a volumne for config and certs
-VOLUME /config:/etc/mosquitto/config/
-VOLUME /data:/etc/mosquitto/data/
-VOLUME /log:/etc/mosquitto/log/
+
 
 # expose ports (normal unencrypted, TLS encrypted, WS encrypted)
 EXPOSE 1883 8883 8080
