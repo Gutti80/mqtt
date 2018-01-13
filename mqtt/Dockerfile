@@ -2,7 +2,7 @@ FROM debian:jessie
 MAINTAINER Georg Guttmann
 
 RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install -y curl sudo nano
+RUN apt-get install -y curl sudo nano net-tools
 
 RUN echo Europe/Vienna > /etc/timezone && dpkg-reconfigure tzdata
 
@@ -21,8 +21,6 @@ WORKDIR /etc/mosquitto
 # add a user
 RUN adduser --system --disabled-password --disabled-login mosquitto
 USER mosquitto
-
-
 
 # expose ports (normal unencrypted, TLS encrypted, WS encrypted)
 EXPOSE 1883 8883 8080

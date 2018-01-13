@@ -2,6 +2,8 @@ version: "2"
 services:
     mqtt:
         build: mqtt
+        image: georgguttmann/mqtt
+        container_name: mqtt
         restart: always
         expose:
             - "1883"
